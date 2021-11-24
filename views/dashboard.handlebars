@@ -1,0 +1,315 @@
+
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification has-background-info-light">
+              <p class="title">Menu</p>
+              <p class="subtitle">{{CaseManager.username}}</p>
+                  <a href = "/logout"><button class="button is-danger" id="logout">
+                    Logout 
+                  </button></a><br><a href = "/table">
+                  <br>
+                  <button class="button is-link" id="Table View">
+
+                    Table View 
+                  </button></a><br>
+              
+            </article>
+          </div>
+{{!-- UAC INFO TAB START --}}
+          <div class="tile is-parent">
+            <article class="tile is-child notification has-background-info-light">
+              <p class="title">{{{uac.uacname}}}</p>
+              <p class="subtitle">A# {{uac.a_number}}</p>
+              <div class="container field is-grouped">
+                <p class="control">
+                  <button class="button is-warning" id="release-request-btn">
+                    Release Request 
+                  </button>
+                </p>
+              </div>
+              <div class="uac-info">
+                <p>DOB:{{format_nice_date uac.dob}}</p>
+                <p>COO:{{uac.coo}}</p>
+                <p>LOS:{{format_nice_date uac.intake}}</p>
+                <p>Age:{{uac.age}}</p>
+                <p>Category:{{uac.category}}</p>
+                <p>Gender: {{uac.gender}}</p>
+                <p>SIR: {{uac.sir}}</p>
+              </div>
+              <button class="button is-success" id="edit-uac">Edit</button>
+            </article>
+          </div>
+        </div>
+{{!-- UAC INFO TAB END  --}}
+
+    {{!-- SPONSOR TAB PARTIAL --}}
+        <div class="tile is-parent">
+          <article class="tile is-child notification has-background-info-light">
+            <p class="title">{{uac.sponsor_name}}</p>
+            <p class="subtitle">{{uac.sponsor_relationship}}</p>
+            <div class="content">
+              <div class="contain field">
+              </div>
+              <p>Address 1: {{uac.sponsor_address_1}}</p>
+              <p>Address 2: {{uac.sponsor_address_2}}</p>
+              <p>City: {{uac.sponsor_city}}</p>
+              <p>State: {{uac.sponsor_state}}</p>
+              <p>Zip: {{uac.sponsor_zip}}</p>
+            </div>
+            <button class="button is-success" id="edit-sponsor">Edit</button>
+            <button class = "button is-success" id = "edit-RR">Edit Release Request</button>
+          </article>
+        </div>
+      </div>
+    {{!-- SPONSOR TAB PARTIAL END --}}
+
+{{!-- TASK BAR START --}}
+
+      <div class="tile is-parent">
+        <article class="tile is-child notification has-background-info-light">
+          <div class="content">
+            <p class="title">Tasks</p>
+            <p class="subtitle"><strong>A# {{uac.a_number}}</strong></p>
+            <div class="content">
+              <span>FRP</span>
+              <span id = "FRP">{{format_nice_date uac.frp}}</span> <br />
+              <span>ARI</span>
+              <span id ="ARI">{{format_nice_date uac.ari}}</span> <br />
+              <span>POR</span>
+              <span id = "POR">{{format_nice_date uac.por}} </span> <br />
+              <span>Sponsor BGC</span>
+              <span>{{format_nice_date uac.sponsor_bgc}}</span> <br />
+              <span>Sponsor ID</span>
+              <span id = "sponsor-id">{{format_nice_date uac.sponsor_id}}</span> <br />
+              <span>Sponsor FP</span>
+              <span id = "sponsor-fp">{{format_nice_date uac.sponsor_fp}}</span> <br />
+              <span>HHM ID</span>
+              <span id = "hhm-id">{{format_nice_date uac.hhm_id}}</span> <br />
+              <span>HHM Checks</span>
+              <span id = "hhm-checks">{{format_nice_date uac.hhm_checks}}</span> <br />
+              <span>Sex-Offender check</span>
+              <span id = "sex-offender-check">{{format_nice_date uac.sex_offender_check}}</span> <br />
+              <span>Caregiver In Home Country</span>
+              <span>{{format_nice_date uac.coo_caregiver_date}}</span> <br />
+              <span>CA/N Check Requested</span>
+              <span>{{format_nice_date can_check_requested_date}}</span> <br />
+              <span>Prior Sponsorship</span>
+              <span>{{format_nice_date uac.prior_sponsorship_date}}</span> <br />
+              <span>Previous Address</span>
+              <span>{{format_nice_date uac.previous_address_date}}</span> <br />
+              <span>Criminal History</span>
+              <span>{{format_nice_date uac.criminal_history_date}}</span> <br />
+              
+              <button class="button is-link" id="edit-tasks">
+            Edit
+          </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+{{!-- TASK BAR END     --}}
+
+{{!-- EDIT UAC MODAL START --}}
+    <div class="modal" id="edit-uac-modal">
+      <div class="modal-background" id="edit-uac-BG"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Edit UAC Info</p>
+          <button
+            class="delete"
+            id="edit-uac-close-x"
+            aria-label="close"
+          ></button>
+        </header>
+        <section class="modal-card-body">
+          Name: <input class="input" name="uacname" type="text" id= "uac-edit-name" value={{uac.uacname}}>
+          A# <input class="input" id ="a-number" name="a_number" type= "text" value={{uac.a_number}}>
+          DOB: <input class="input" id ="uac-dob" name="dob" type="text" value={{format_nice_date uac.dob}} >
+          COO: <input class="input" id ="uac-coo" name="coo" type="text" value={{uac.coo}} >
+          Age: <input class="input" id ="uac-age" name="age" type="text" value={{uac.age}} >
+          Category: <input class="input" id = "category" name="category" type="text" value = {{uac.category}}>
+          Gender: <input class="input" id = "gender" name="gender" type="text" value = {{uac.gender}}>
+        </section>
+
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="edit-uac-btn">
+            Save Changes
+          </button>
+          <button class="button" id="cancel-edit-uac-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+{{!-- EDIT UAC MODAL END --}}
+
+
+{{!-- EDIT SPONSOR MODAL START --}}
+    <div class="modal" id="edit-sponsor-modal">
+      <div class="modal-background" id="edit-sponsor-BG"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Edit Sponsor Info</p>
+          <button class="delete" id="edit-sponsor-close-x"aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          Name: <input class="input" name="sponsor_name" type="text" placeholder="Name of Sponsor" id="sponsor_name" value={{uac.sponsor_name}}>
+          Address 1: <input class="input" name="sponsor_address_1" type="text" placeholder="Address1" id="sponsor_address_1" value={{uac.sponsor_address_1}}>
+          Address 2: <input class="input" name="sponsor_address_2" type="text" placeholder="Address2" id="sponsor_address_2" value={{uac.sponsor_address_2}}>
+          City: <input class="input" name="sponsor_city" type="text" placeholder="City" id="sponsor_city" value={{uac.sponsor_city}}>
+          State: <input class="input" name="sponsor_state" type="text" placeholder="State" id="sponsor_state" value={{uac.sponsor_state}}>
+          Zip: <input class="input" name="sponsor_zip" type="text" placeholder="Zip Code" id="sponsor_zip" value={{uac.sponsor_zip}}>
+          Relationship: <input class="input" name="sponsor_relationship" type="text" placeholder="Sponsor Relationship" id="sponsor_relationship" value={{uac.sponsor_relationship}}>
+          Age: <input class="input" name="sponsor_age" type="text" placeholder="Sponsor Age" id="sponsor_age" value={{uac.sponsor_age}}>
+          Gender: <input class="input" name="sponsor_gender" type="text" placeholder="Gender" id="sponsor_gender" value={{uac.sponsor_gender}}>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="save-sponsor-info">
+            Save Changes
+          </button>
+          <button class="button" id="cancel-edit-sponsor-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+{{!-- EDIT SPONSOR MODAL END --}}
+
+
+{{!-- EDIT TASKS MODAL --}}
+        <div class="modal" id="edit-tasks-modal">
+      <div class="modal-background" id="edit-tasks-BG"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Edit Tasks</p>
+          <button class="delete" id="edit-tasks-close-x" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          FRP: <input class="input" name="frp" type="text" placeholder="Date Received" id="frp" value={{format_nice_date uac.frp}}>
+          ARI: <input class="input" name="ari" type="text" placeholder="Date Received" id="ari" value={{format_nice_date uac.ari}}>
+          POR: <input class="input" name="por" type="text" placeholder="Date Received" id="por" value={{format_nice_date uac.por}}>
+          Sponsor Background Check: <input class="input" name="sponsor_bgc" type="text" placeholder="Date Completed" id="sponsor_bgc" value = {{format_nice_date uac.sponsor_bgc}}>
+          Sponsor ID: <input class="input" name="sponsor_id" type="text" placeholder="Date Received" id="sponsor_id" value = {{format_nice_date uac.sponsor_id}}>
+          Sponsor FP: <input class="input" name="sponsor_fp" type="text" placeholder="Date Fingerprinted" id="sponsor_fp" value = {{format_nice_date uac.sponsor_fp}}>
+          HHM ID: <input class="input" name="hhm_id" type="text" placeholder="Date Received" id="hhm_id" value = {{format_nice_date uac.hhm_id}}>
+          Sex-Offender Check: <input class="input" name="sex_offender_check" type="text" placeholder="Date Checked" id="sex_offender_check" value = {{format_nice_date uac.sex_offender_check}}>
+          Caregiver In Home Country: <input class="input" name="coo_caregiver_date" type="text" placeholder="Date Call Made" id="coo_caregiver_date" value = {{format_nice_date uac.coo_caregiver_date}}>
+          Prior Sponsorship: <input class="input" name="prior_sponsorship_date" type="text" placeholder="Date Received" id="prior_sponsorship_date" value = {{format_nice_date uac.prior_sponsorship_date}}>
+          Previous Address: <input class="input" name="previous_address_date" type="text" placeholder="Date Received" id="previous_address_date" value = {{format_nice_date uac.previous_address_date}}>
+          Criminal History: <input class="input" name="criminal_history_date" type="text" placeholder="Date Received" id="criminal_history_date" value = {{format_nice_date uac.criminal_history_date}}>
+          CA/N Check Requested: <input class="input" name="can_check_requested_date" type="text" placeholder="Date Requested" id="can_check_requested_date" value = {{format_nice_date uac.can_check_requested_date}}>
+
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="save-task-info">
+            Save Changes
+          </button>
+          <button class="button" id="cancel-edit-task-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+    {{!-- END EDIT TASKS MODAL --}}
+
+
+
+{{!-- MISC MODAL START --}}
+<div class="modal" id="edit-RR-modal">
+      <div class="modal-background" id="edit-RR-BG"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Release Request Data</p>
+          <button class="delete" id="edit-RR-close-x" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          List of Birth Certificates: <textarea class="textarea" rows = "2" name="list_of_bcs" id ="list_of_bcs" placeholder="List all birth certificates provided"></textarea>
+          Home Country Narrative: <textarea class="textarea" rows = "4" name="coo_narrative" id ="coo_narrative" placeholder="Include a brief paragraph about the daily life of the UAC in country of origin including who he lived with, information about school, why he or she traveled to the US, who traveled with the UAC, and if he or she has a debt that is expected to be paid back by the minor or family"></textarea>
+          Self-Disclosure: <input class="input" name="self_disclosure" type="text" placeholder="Date Requested" id="self_disclosure">
+          Criminal History Disclosed: <textarea class="textarea" rows = "2" name="criminal_history" id ="criminal_history" placeholder="YES/NO If yes, list charges and dates"></textarea>
+          Sponsor ID Type: <input class="input" name="sponsor_id_type" type="text" placeholder="i.e. 'Guatemalan Consular ID'" id="sponsor_id_type">
+          List Addittional ID's: <textarea class="textarea" rows = "4" name="hhm_id_list" type="text" 
+          placeholder="i.e. 
+--HHM1 : Guatemalan Consular ID expiration date: MM/DD/YYYY
+--HHM2 : Guatemalan Consular ID experiation date: MM/DD/YYYY
+--Adult Caregiver : United States Passport expiration date: 1/1/2001" id="hhm_id_list" value=""></textarea>
+          Fingerprint Results Required: <input class="input" name="fp_required" type="text" placeholder="YES/NO" id="fp_required" value = "">
+          Fingerprint Results: <textarea class="textarea" name="fp_results" type="text" placeholder="Clear/Record Was Found (if record found, list charges and dates)" id="fp_results"rows="2" value = ""></textarea>          
+          CA/N Check Required: <input class="input" name="can_check_required" type="text" placeholder="YES/NO" id="can_check_required" value = "">
+          CA/N Check Received: <input class="input" name="can_check_received" type="text" placeholder="Date Received/Pending" id="can_check_received" value = "">
+          CA/N Check Results: <textarea class="textarea" name="can_check_results" type="text" placeholder="Clear/Record Was Found (if record found, list charges and dates)" id="can_check_results" rows ="2"value = ""></textarea>
+          Caregiver in COO: <input class="input" name="coo_caregiver" type="text" placeholder="Caregiver's Name" id="coo_caregiver" value = "">
+          Prior Sponsorship: <textarea class="textarea" name="prior_sponsorship" type="text" placeholder="DID/DID NOT (if applicable, provide details on compliance with ORR requirements as it relates to the previous sponsorship" id="prior_sponsorship" rows="2" value = ""></textarea>
+          Previous Address: <textarea class="textarea" name="previous_address" type="text" placeholder="WAS/WAS NOT (if WAS, list UACs previously sponsored under current address" id="previous_address" rows="2"value = ""></textarea>
+          Release Recommendation: <textarea class="textarea" name="release_recommendation" type="text" placeholder="Include the release recommendation for a straight release, release with PRS, release with a positive Home Study recommendation, or denial." id="release_recommendation" rows = "2" value = ""></textarea>
+          Home Study/PRS: <textarea class="textarea" name="home_study_prs" type="text" placeholder="List the reasons for recommending Home Study, and or, Post Release Services. The release request needs to state what the reason for the home study was, what kind of home study (TVPRA or Discretionary) if there are any special recommendations/conditions from the home study provider and if they were completed." id="home_study_prs" value = ""></textarea>
+
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="save-rr-info">
+            Save Changes
+          </button>
+          <button class="button" id="cancel-edit-RR-modal">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
+{{!-- MISC MODAL END --}}
+
+{{!-- RELEASE REQUEST MODAL START --}}
+    <div class="modal" id = "release-request-modal">
+  <div class="modal-background" id= "release-request-BG"></div>
+  <div class="modal-content">
+    <div class = "box">
+      <div class = "content">
+        <strong>Release Request</strong><br>
+        <small>{{uac.uacname}} {{uac.a_number}}</small><br>
+        <small><strong>SPONSOR/UAC RELATIONSHIP:</strong><br><br>
+
+ {{uac.sponsor_name}}, Age {{uac.sponsor_age}}, category {{uac.category}}, {{uac.sponsor_relationship}} requests sponsorship of {{uac.uacname}} (A# {{uac.a_number}}), {{uac.gender}}, age {{uac.age}}. {{uac.sponsor_name}} currently resides in {{uac.sponsor_city}},{{uac.sponsor_state}} USA. 
+
+<br><br>
+
+<strong>
+FRP and Supporting Documents:</strong>
+<br>
+{{uac.coo_narrative}}
+<br>
+ The Case Manager received and reviewed {{uac.sponsor_name}}'s family reunification packet, which includes: <br><br>
+ 
+ --Sponsor ID: {{uac.sponsor_id_type}} <br>
+ --Household Member ID: {{format_nice_date uac.hhm_id}} <br>
+ --Proof of ability to provide housing, food, education: <br>
+ The sponsor adequately demonstrated that he is able to support the minor financially. <br>
+ --Proof of Address: [type of document] received on {{format_nice_date uac.poa}} <br>
+ Verified through Smarty Streets on {{format_nice_date uac.poa}} Verified through Google Maps on {{format_nice_date uac.poa}}. <br>
+ --Proof of immigration/citizenship status: {{uac.sponsor_id_type}} received on {{format_nice_date uac.sponsor_id}} <br>
+ --Letter of Designation: Received on {{format_nice_date uac.ari}} <br>
+ --LOPC Packet: Sent on  ############ <br>
+ --Sponsor Handbook: Sponsor confirmed reading Sponsor Handbook on {{format_nice_date uac.frp}}. Criminal: <br>
+ --As of {{format_nice_date uac.sponsor_bgc}}, for {{uac.sponsor_name}} : <br>
+ --Public Records Check: Clear<br>
+ --Sex offender Check: Clear <br>
+ --Fingerprint Check: Fingerprints taken: {{format_nice_date uac.sponsor_fp}} <br><br>
+ Results Required Prior to Release: {{fp_required}} Results Status: {{fp_results}} Received Results: Clear The FFS informed this case manager that the sponsor has criminal record information that does allow for the UAC to be safely released to the sponsor.<br><br>
+ --######There are no other household members in the residence########<br>
+ --Self-Disclosure: This Case Manager asked the sponsor if he/she has any criminal history on {{format_nice_date uac.criminal_history_date}} Sponsor responded: {{uac.criminal_history}}. <br>
+ <br>
+ Birth Certificates: All birth certificates needed to prove the sponsor-UAC relationship were received on {{format_nice_date uac.por}} Sponsor is confirmed to be the UAC’s {{uac.sponsor_relationship}}. Birth certificates received are: {{uac.list_of_bcs}} <br><br>
+ 
+ PRIOR SPONSORSHIP: Verified on {{format_nice_date uac.prior_sponsorship_date}} that the sponsor {{uac.prior_sponsorship}} previously sponsor or attempt to sponsor a child. <br><br>
+ PRIOR ADDRESS: Verified on {{format_nice_date uac.previous_address_date}} that the sponsor’s address {{uac.previous_address}} used in a previous case. <br><br>
+ 
+ <strong>CONTACT WITH PRIMARY CAREGIVER IN COO:</strong><br><br> Spoke with {{uac.coo_caregiver}} who was the primary caregiver in home country on {{format_nice_date uac.coo_caregiver_date}}. {{uac.coo_caregiver}} was able to verify information provided by the UAC and the sponsor. <br><br>
+ <strong>SPONSOR RESOURCES:</strong> <br><br>
+ The following emergency contact information was provided to the sponsor: 911, ORR Parent and Sponsor Hotline, information regarding health care and vaccinations, Department of Family and Protective Services (in state of residence), and National Human Trafficking Resource Center.<br><br>
+ <strong> Release Recommendation: </strong>{{uac.release_recommendation}}</small>
+      </div>
+    </div> </div>
+  <button class="modal-close is-large" aria-label="close" id = "release-request-x"></button>
+</div>
+
+{{!-- RELEASE REQUEST MODAL END --}}
+  </body>
+  <script src="../js/casemanagerview.js"></script>
+  <script src = "../js/editUAC.js"></script>
+  {{!-- <script src = "../controllers/api/userRoutes.js"></script> --}}
+</html>
+
