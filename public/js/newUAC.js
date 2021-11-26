@@ -1,12 +1,12 @@
 async function newUAChandler(event) {
-  console.log("clicked, cause alvin said so");
+  console.log("NewUAC.js");
   event.preventDefault();
-  const a_number = document.querySelector("#a-number").value.trim();
+  const a_number = document.querySelector("#a-number").value;
   const uacname = document.querySelector("#uac-name").value;
-  const dob = document.querySelector("#dob").value.trim();
-  const coo = document.querySelector("#coo").value.trim();
-  const intake = document.querySelector("#date-admitted").value.trim();
-  const gender = document.querySelector("#gender").value.trim();
+  const dob = document.querySelector("#dob").value;
+  const coo = document.querySelector("#coo").value;
+  const intake = document.querySelector("#date-admitted").value;
+  const gender = document.querySelector("#gender").value;
   const newUACModal = document.querySelector("#new-uac-modal");
 
   const response = await fetch("/api/uac", {

@@ -6,12 +6,17 @@ router.put("/tasks/:task_id", (req, res) => {
   UAC.update(
     {
       // All the fields you can update and the data attached to the request body.
+      sponsor_assessment: req.body.sponsor_assessment,
       frp: req.body.frp,
       ari: req.body.ari,
       por: req.body.por,
+      poa: req.body.poa,
+      lod: req.body.lod,
+      lopc: req.body.lopc,
       sponsor_bgc: req.body.sponsor_bgc,
       sponsor_id: req.body.sponsor_id,
       sponsor_fp: req.body.sponsor_fp,
+      hhm_checks: req.body.hhm_checks,
       hhm_id: req.body.hhm_id,
       sex_offender_check: req.body.sex_offender_check,
       coo_caregiver_date: req.body.coo_caregiver_date,

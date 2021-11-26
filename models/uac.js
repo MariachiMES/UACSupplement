@@ -23,19 +23,20 @@ UAC.init(
       },
     },
     dob: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     age: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue: 0,
     },
     coo: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     intake: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     gender: {
@@ -59,39 +60,51 @@ UAC.init(
       allowNull: true,
     },
     frp: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     ari: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     por: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    poa: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    lod: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    lopc: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sponsor_bgc: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sponsor_id: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sponsor_fp: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     hhm_id: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     hhm_checks: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sex_offender_check: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     relationship_narrative: {
@@ -103,7 +116,11 @@ UAC.init(
       allowNull: true,
     },
     sir: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    sir_narrative: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sponsor_name: {
@@ -111,12 +128,13 @@ UAC.init(
       allowNull: true,
     },
     sponsor_dob: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     sponsor_age: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue: 0,
     },
     sponsor_address_1: {
       type: DataTypes.STRING,
@@ -137,6 +155,7 @@ UAC.init(
     sponsor_zip: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue: 00000,
     },
     sponsor_relationship: {
       type: DataTypes.STRING,
@@ -208,23 +227,27 @@ UAC.init(
       allowNull: true,
     },
     coo_caregiver_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     prior_sponsorship_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     previous_address_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     criminal_history_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     can_check_requested_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    poa_document: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
   },

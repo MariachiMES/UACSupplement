@@ -14,6 +14,8 @@ router.put("/uac/:uac_id", (req, res) => {
       age: req.body.age,
       category: req.body.category,
       gender: req.body.gender,
+      sir: req.body.sir,
+      sir_narrative: req.body.sir_narrative,
     },
     {
       // Gets a book based on the book_id given in the request parameters

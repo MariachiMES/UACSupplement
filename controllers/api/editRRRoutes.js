@@ -12,6 +12,7 @@ router.put("/RR/:RR_id", (req, res) => {
       criminal_history: req.body.criminal_history,
       sponsor_id_type: req.body.sponsor_id_type,
       hhm_id_list: req.body.hhm_id_list,
+      poa_document: req.body.poa_document,
       fp_required: req.body.fp_required,
       fp_results: req.body.fp_results,
       can_check_required: req.body.can_check_required,

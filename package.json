@@ -16,7 +16,7 @@
     "handlebars": "^4.7.7",
     "heroku": "^7.59.1",
     "mysql2": "^2.3.2",
-    "nodemon": "^2.0.14",
+    "nodemon": "^2.0.15",
     "sequelize": "^6.8.0",
     "sessions": "0.0.2-7"
   },
@@ -31,7 +31,7 @@
     "type": "git",
     "url": "git+https://github.com/MariachiMES/UACTracker3000.git"
   },
-  "author": "David Ortiz, Ben Townsend, Frank Almaraz",
+  "author": "David Ortiz",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/MariachiMES/UACTracker3000/issues"

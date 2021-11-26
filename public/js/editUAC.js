@@ -1,4 +1,5 @@
 const UACID = window.location.pathname;
+//EDIT UAC INFO AND PUT ROUTE//
 async function editUAChandler(event) {
   console.log("editUACHandler");
   event.preventDefault();
@@ -11,6 +12,8 @@ async function editUAChandler(event) {
   const gender = document.querySelector("#gender").value;
   const age = document.querySelector("#uac-age").value;
   const category = document.querySelector("#category").value;
+  const sir = document.querySelector("#sir").value;
+  const sir_narrative = document.querySelector("#sir_narrative").value;
   //   const FRP = document.querySelector("#FRP").value.trim();
 
   const editUACModal = document.querySelector("#edit-uac-modal");
@@ -26,6 +29,8 @@ async function editUAChandler(event) {
       age: age,
       category: category,
       gender: gender,
+      sir: sir,
+      sir_narrative: sir_narrative,
     }),
 
     headers: {
@@ -47,17 +52,21 @@ document
 
 const taskSaveBtn = document.getElementById("save-task-info");
 const editUACID = UACID.split("/")[2];
-
+//EDIT TASKS AND PUT ROUTE
 async function editTaskHandler(event) {
   console.log("editTaskHandler");
   event.preventDefault();
   const frp = document.querySelector("#frp").value;
   const ari = document.querySelector("#ari").value;
   const por = document.querySelector("#por").value;
+  const poa = document.querySelector("#poa").value;
+  const lod = document.querySelector("#lod").value;
+  const lopc = document.querySelector("#lopc").value;
   const sponsor_bgc = document.querySelector("#sponsor_bgc").value;
   const sponsor_id = document.querySelector("#sponsor_id").value;
   const sponsor_fp = document.querySelector("#sponsor_fp").value;
   const hhm_id = document.querySelector("#hhm_id").value;
+  const hhm_checks = document.querySelector("#hhm_checks").value;
   const sex_offender_check = document.querySelector(
     "#sex_offender_check"
   ).value;
@@ -76,22 +85,30 @@ async function editTaskHandler(event) {
   const can_check_requested_date = document.querySelector(
     "#can_check_requested_date"
   ).value;
+  const sponsor_assessment = document.querySelector(
+    "#sponsor_assessment"
+  ).value;
   const response = await fetch("/api/edit/tasks/" + editUACID, {
     method: "PUT",
     body: JSON.stringify({
+      sponsor_assessment: sponsor_assessment,
       frp: frp,
       ari: ari,
       por: por,
+      poa: poa,
+      lod: lod,
+      lopc: lopc,
       sponsor_bgc: sponsor_bgc,
       sponsor_id: sponsor_id,
       sponsor_fp: sponsor_fp,
+      hhm_checks: hhm_checks,
       hhm_id: hhm_id,
       sex_offender_check: sex_offender_check,
       coo_caregiver_date: coo_caregiver_date,
       prior_sponsorship_date: prior_sponsorship_date,
       previous_address_date: previous_address_date,
       criminal_history_date: criminal_history_date,
-      can_check_requested: can_check_requested_date,
+      can_check_requested_date: can_check_requested_date,
     }),
 
     headers: {
@@ -109,7 +126,7 @@ async function editTaskHandler(event) {
 }
 taskSaveBtn.addEventListener("click", editTaskHandler);
 const sponsorSaveBtn = document.querySelector("#save-sponsor-info");
-
+//EDIT SPONSOR TAB AND PUT ROUTE
 async function editSponsorHandler(event) {
   console.log("editSponsorHandler");
   event.preventDefault();
@@ -153,7 +170,7 @@ async function editSponsorHandler(event) {
   }
 }
 sponsorSaveBtn.addEventListener("click", editSponsorHandler);
-
+//EDIT RELEASE REQUEST AND PUT ROUTE
 const rrSaveBtn = document.querySelector("#save-rr-info");
 async function editRRHandler(event) {
   console.log("editRRHandler");
@@ -172,6 +189,7 @@ async function editRRHandler(event) {
   const can_check_received = document.querySelector(
     "#can_check_received"
   ).value;
+  const poa_document = document.querySelector("#poa_document").value;
   const can_check_results = document.querySelector("#can_check_results").value;
   const coo_caregiver = document.querySelector("#coo_caregiver").value;
   const prior_sponsorship = document.querySelector("#prior_sponsorship").value;
@@ -190,6 +208,7 @@ async function editRRHandler(event) {
       criminal_history: criminal_history,
       sponsor_id_type: sponsor_id_type,
       hhm_id_list: hhm_id_list,
+      poa_document: poa_document,
       fp_required: fp_required,
       fp_results: fp_results,
       can_check_required: can_check_required,
