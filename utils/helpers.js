@@ -12,4 +12,11 @@ module.exports = {
       date
     ).getDate()}/${new Date(date).getFullYear()}`;
   },
+  color_coding: () => {
+    const criterion = document.querySelectorAll("table-info");
+    if (criterion.value === "") {
+      criterion.classList.add("has-background-danger");
+    }
+    criterion.classList.add("has-background-primary");
+  },
 };

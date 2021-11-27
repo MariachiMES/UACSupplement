@@ -235,3 +235,170 @@ async function editRRHandler(event) {
   }
 }
 rrSaveBtn.addEventListener("click", editRRHandler);
+
+//Color Coding
+const colorCoding = function () {
+  if (sponsor_assessment.value === "") {
+    document
+      .querySelector("#sa-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#sa-container")
+    .classList.add("has-background-primary");
+  if (frp.value === "") {
+    document
+      .querySelector("#frp-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#frp-container")
+    .classList.add("has-background-primary");
+  if (ari.value === "") {
+    document
+      .querySelector("#ari-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#ari-container")
+    .classList.add("has-background-primary");
+  if (poa.value === "") {
+    document
+      .querySelector("#poa-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#poa-container")
+    .classList.add("has-background-primary");
+  if (por.value === "") {
+    document
+      .querySelector("#por-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#por-container")
+    .classList.add("has-background-primary");
+  if (lod.value === "") {
+    document
+      .querySelector("#lod-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#lod-container")
+    .classList.add("has-background-primary");
+  if (lopc.value === "") {
+    document
+      .querySelector("#lopc-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#lopc-container")
+    .classList.add("has-background-primary");
+  if (sponsor_bgc.value === "") {
+    document
+      .querySelector("#sponsor_bgc-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#sponsor_bgc-container")
+    .classList.add("has-background-primary");
+  if (sponsor_id.value === "") {
+    document
+      .querySelector("#sponsor_id-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#sponsor_id-container")
+    .classList.add("has-background-primary");
+  if (sponsor_fp.value === "") {
+    document
+      .querySelector("#sponsor_fp-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#sponsor_fp-container")
+    .classList.add("has-background-primary");
+  if (hhm_checks.value === "") {
+    document
+      .querySelector("#hhm_checks-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#hhm_checks-container")
+    .classList.add("has-background-primary");
+  if (sex_offender_check.value === "") {
+    document
+      .querySelector("#sex_offender_check-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#sex_offender_check-container")
+    .classList.add("has-background-primary");
+  if (coo_caregiver_date.value === "") {
+    document
+      .querySelector("#coo_caregiver_date-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#coo_caregiver_date-container")
+    .classList.add("has-background-primary");
+  if (can_check_requested_date.value === "") {
+    document
+      .querySelector("#can_check_requested_date-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#can_check_requested_date-container")
+    .classList.add("has-background-primary");
+  if (prior_sponsorship_date.value === "") {
+    document
+      .querySelector("#prior_sponsorship_date-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#prior_sponsorship_date-container")
+    .classList.add("has-background-primary");
+  if (previous_address_date.value === "") {
+    document
+      .querySelector("#previous_address_date-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#previous_address_date-container")
+    .classList.add("has-background-primary");
+  if (criminal_history_date.value === "") {
+    document
+      .querySelector("#criminal_history_date-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#criminal_history_date-container")
+    .classList.add("has-background-primary");
+  if (hhm_id.value === "") {
+    document
+      .querySelector("#hhm_id-container")
+      .classList.add("has-background-danger");
+  }
+  document;
+  document
+    .querySelector("#hhm_id-container")
+    .classList.add("has-background-primary");
+};
+colorCoding();

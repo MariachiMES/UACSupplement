@@ -93,17 +93,52 @@
           <td><a href= "dashboard/{{uac_id}}">{{a_number}}</td></a>
           <td>{{uacname}}</td>
           <td>{{case_manager}}</td>
-          <td>{{format_nice_date sponsor_assessment}}</td>
-          <td>{{format_nice_date frp}}</td>
-          <td>{{format_nice_date ari}}</td>
-          <td>{{format_nice_date por}}</td>
-          <td>{{format_nice_date sponsor_bgc}}</td>
-          <td>{{format_nice_date sponsor_fp}}</td>
-          <td>{{format_nice_date hhm_id}}</td>
-          <td>{{sir}}</td>
-          <td>{{exception}}</td>
+          {{#if sponsor_assessment}}
+          <td class = "has-background-primary-light">{{format_nice_date sponsor_assessment}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date sponsor_assessment}}</td>
+          {{/if}}
+          {{#if frp}}
+          <td class = "has-background-primary-light">{{format_nice_date frp}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date frp}}</td>
+          {{/if}}
+          {{#if ari}}
+          <td class = "has-background-primary-light">{{format_nice_date ari}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date ari}}</td>
+          {{/if}}
+          {{#if por}}
+          <td class = "has-background-primary-light">{{format_nice_date por}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date por}}</td>
+          {{/if}}
+          {{#if sponsor_bgc}}
+          <td class = "has-background-primary-light">{{format_nice_date sponsor_bgc}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date sponsor_bgc}}</td>
+          {{/if}}
+          {{#if sponsor_fp}}
+          <td class = "has-background-primary-light">{{format_nice_date sponsor_fp}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date sponsor_fp}}</td>
+          {{/if}}
+          {{#if hhm_id}}
+          <td class = "has-background-primary-light">{{format_nice_date hhm_id}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{format_nice_date hhm_id}}</td>
+          {{/if}}
+          {{#if sir}}
+          <td class = "has-background-primary-light">{{sir}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{sir}}</td>
+          {{/if}}
+          {{#if exception}}
+          <td class = "has-background-primary-light">{{exception}}</td>
+          {{else}}
+          <td class = "has-background-danger-light">{{exception}}</td>
+          {{/if}}
         </tbody>{{/each}}
-
         <tfoot>
           <tr>
             <th>
